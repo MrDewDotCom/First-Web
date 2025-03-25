@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 50px;
+    background-color: #f4f4f4;
+}
+
+/* กล่องข้อความ */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    transition: transform 0.5s, opacity 0.5s, padding 0.5s;
+}
+
+/* ทำให้กล่องเล็กลงหลังจากกดปุ่ม */
+.container.shrink {
+    transform: scale(0.5);
+    opacity: 0;
+    padding: 0px;
+}
+
+/* ปุ่ม */
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ปุ่ม "สวัสดี" */
+button.hello-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+button.hello-btn:hover {
+    background-color: #218838;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(0, 255, 0, 0.3);
+}
+
+/* ปุ่ม "ลาก่อน" */
+button.goodbye-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button.goodbye-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.3);
+}
+
+/* เอฟเฟกต์ให้ปุ่มหายไป */
+button.hide {
+    animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+    }
+}
+
+/* ทำให้เว็บดูดีบนมือถือ */
+@media screen and (max-width: 600px) {
+    .container {
+        width: 80%;
+        padding: 15px;
+    }
+    button {
+        width: 100%;
+        font-size: 14px;
+    }
+}
